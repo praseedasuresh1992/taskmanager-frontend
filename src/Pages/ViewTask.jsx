@@ -6,7 +6,9 @@ function ViewTasks() {
   const [message, setMessage] = useState('')
   
   // 🔹 get logged-in user's ID (adjust based on how you store it)
-  const userId = localStorage.getItem('userId')
+ const storedUser = JSON.parse(localStorage.getItem('user'))
+const userId = storedUser ? storedUser.id : null
+
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -16,7 +18,7 @@ function ViewTasks() {
       }
 
       try {
-        const res = await api.get(`/tasks/user/${userId}`)
+        const res = await api.get(`/gettask`)
         setTasks(res.data)
       } catch (err) {
         console.error(err)

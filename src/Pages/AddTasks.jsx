@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import api from '../api' // ✅ Axios instance configured for your backend
+import api from '../api' //  Axios instance configured for your backend
 
 function AddTask() {
   const [task, setTask] = useState({
@@ -21,7 +21,7 @@ function AddTask() {
     const token = localStorage.getItem("token");
   
        if (!token) {
-      setMessage("⚠️ You must be logged in to add a task.")
+      setMessage("You must be logged in to add a task.")
       return
     }
 

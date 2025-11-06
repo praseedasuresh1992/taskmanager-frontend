@@ -1,7 +1,22 @@
 import React from 'react'
 import { Link,Outlet } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import api from '../api';
 
 function UserDashboard() {
+   const navigate = useNavigate();
+    const handleLogout = async () => {
+       
+    try {
+      const res = await api.post("/logoutuser");
+      localStorage.clear();
+
+      console.log(res.data.message);
+      navigate("/login"); // Redirect to login page
+    } catch (err) {
+      console.error("Logout failed:", err);
+    }
+  }
   return (
     <>
     <div className="p-8 flex flex-col items-center">
@@ -39,6 +54,12 @@ function UserDashboard() {
         >
            Delete Task
         </Link>
+            <button
+            onClick={handleLogout}
+            className="bg-gray-700 hover:bg-gray-800 text-white px-4 py-2 rounded"
+          >
+            Logout
+          </button>
       </div>
     </div>
     <Outlet/>

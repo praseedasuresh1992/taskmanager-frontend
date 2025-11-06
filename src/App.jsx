@@ -13,6 +13,7 @@ import ViewTasks from './Pages/ViewTask';
 import UpdateTask from './Pages/UpdateTask';
 import { createBrowserRouter } from 'react-router-dom';
 import { RouterProvider } from 'react-router-dom';
+import DeleteTask from './Pages/DeleteTask';
 
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
       {path: "addtask", element: <AddTask/>},
       {path: "gettask", element: <ViewTasks/>},
       {path: "updatetask", element: <UpdateTask/>},
-      {path: "deletetask", element: <AddTask/>}
+      {path: "deletetask", element: <DeleteTask/>}
 
     ]
   },
